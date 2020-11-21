@@ -5,7 +5,13 @@ import Converter from './components/Converter';
 function App() {
   return (
     <div className="App">
-      <Converter currencyA="AUD" currencyB="USD"></Converter>
+      <div className="row">
+        <h1>Currency Converter</h1>
+      </div>
+      <div className="row">
+        <Converter currencyA="USD" currencyB="AUD"></Converter>
+        <Converter currencyA="AUD" currencyB="USD"></Converter>
+      </div>
     </div>
   );
 }
