@@ -10,12 +10,6 @@ function App() {
       </div>
       <div className="row">
         <Converter currencyA="USD" currencyB="AUD"></Converter>
-        <Converter currencyA="AUD" currencyB="USD"></Converter>
-      </div>
-
-      <div className="row">
-        <Converter currencyA="AUD" currencyB="BRL"></Converter>
-        <Converter currencyA="BRL" currencyB="AUD"></Converter>
       </div>
     </div>
   );
