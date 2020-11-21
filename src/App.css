@@ -1,11 +1,13 @@
 .App {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
+    max-width: 900px;
+    margin: auto;
 }
 
 .App .row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
