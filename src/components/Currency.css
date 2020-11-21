@@ -1,0 +1,13 @@
+.MuiAutocomplete-input {
+    font-size: 26px !important;
+}
+
+.MuiFormLabel-root {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.MuiFormLabel-root.Mui-focused {
+    font-size: 16px;
+    margin-top: 0px;
+}
