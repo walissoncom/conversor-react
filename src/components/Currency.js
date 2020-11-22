@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import './Currency.css';
 
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
-const options = ['USD', 'AUD', 'BRL'];
+import requests from '../requests';
 
 export default class Currency extends Component {
 
@@ -22,9 +22,7 @@ export default class Currency extends Component {
     }
 
     componentDidMount() {
-        console.count('fetchData');
-
-        let url = `https://free.currconv.com/api/v7/currencies?apiKey=9c3064e5020ef34e773d`;
+        let url = `https://free.currconv.com/api/v7/currencies?apiKey=${requests.API_KEY}`;
 
         fetch(url)
             .then(res => res.json())
@@ -63,7 +61,6 @@ export default class Currency extends Component {
                             this.setState({ inputValue: newInputValue });
                         }}
                         options={items}
-                        defaultValue={options[0]}
                         style={{ width: 285 }}
                         renderInput={(params) => <TextField {...params} label="Currency" variant="outlined" />}
                     />

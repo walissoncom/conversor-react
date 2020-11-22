@@ -4,6 +4,8 @@ import './Converter.css';
 
 import Currency from './Currency';
 
+import requests from '../requests';
+
 export default class Converter extends Component {
 
     constructor(props) {
@@ -29,7 +31,7 @@ export default class Converter extends Component {
 
     convert() {
         let from_to = `${this.state.currencyA}_${this.state.currencyB}`;
-        let url = `https://free.currconv.com/api/v7/convert?q=${from_to}&compact=ultra&apiKey=9c3064e5020ef34e773d`;
+        let url = `https://free.currconv.com/api/v7/convert?q=${from_to}&compact=ultra&apiKey=${requests.API_KEY}`;
 
         fetch(url).then(res => {
             return res.json();
@@ -38,7 +40,7 @@ export default class Converter extends Component {
                 let cotation = json[from_to];
                 let currencyB_value = (parseFloat(this.state.currencyA_value) * cotation).toFixed(2);
                 this.setState({ currencyB_value });
-            })
+            });
     }
 
     render() {
