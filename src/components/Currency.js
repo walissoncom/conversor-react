@@ -9,36 +9,16 @@ import requests from '../requests';
 
 export default class Currency extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             value: '',
-            inputValue: '',
-            error: null,
-            isLoaded: false,
-            results: []
+            inputValue: ''
         }
     }
 
-    componentDidMount() {
-        let url = `https://free.currconv.com/api/v7/currencies?apiKey=${requests.API_KEY}`;
 
-        fetch(url)
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded: true,
-                    results: json.results
-                });
-            },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                });
-    }
 
     sendData = (newValue) => {
         this.setState({ value: newValue });
@@ -46,7 +26,7 @@ export default class Currency extends Component {
     }
 
     render() {
-        const { results } = this.state;
+        const results = this.props.currencyList;
         const items = Object.keys(results);
         return (
             <>

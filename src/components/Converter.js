@@ -8,17 +8,40 @@ import requests from '../requests';
 
 export default class Converter extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             currencyA: '',
             currencyB: '',
             currencyA_value: '',
-            currencyB_value: 0
+            currencyB_value: 0,
+            error: null,
+            isLoaded: false,
+            results: []
         }
 
         this.convert = this.convert.bind(this);
+    }
+
+    componentDidMount() {
+        let url = `https://free.currconv.com/api/v7/currencies?apiKey=${requests.API_KEY}`;
+
+        console.count('Fetching data');
+        fetch(url)
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded: true,
+                    results: json.results
+                });
+            },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                });
     }
 
     handleCurrencyA = (currencyValue) => {
@@ -47,9 +70,9 @@ export default class Converter extends Component {
         return (
             <div className="converter">
                 <div className="row currency-selection">
-                    <Currency parentCallback={this.handleCurrencyA} />
+                    <Currency parentCallback={this.handleCurrencyA} currencyList={this.state.results} />
                     <span>TO</span>
-                    <Currency parentCallback={this.handleCurrencyB} />
+                    <Currency parentCallback={this.handleCurrencyB} currencyList={this.state.results} />
                 </div>
                 <div className="row">
                     <input type="text" onChange={(event) => { this.setState({ currencyA_value: event.target.value }) }} />
