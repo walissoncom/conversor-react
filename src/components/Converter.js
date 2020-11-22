@@ -29,7 +29,7 @@ export default class Converter extends Component {
 
     convert() {
         let from_to = `${this.state.currencyA}_${this.state.currencyB}`;
-        let url = `https://free.currconv.com/api/v7/convert?q=${from_to}&compact=ultra&apiKey=261ccba97c3aee22f6c9`;
+        let url = `https://free.currconv.com/api/v7/convert?q=${from_to}&compact=ultra&apiKey=9c3064e5020ef34e773d`;
 
         fetch(url).then(res => {
             return res.json();

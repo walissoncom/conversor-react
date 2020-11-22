@@ -1,9 +1,29 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 25s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 .App {
     display: flex;
     flex-direction: column;
 
     max-width: 900px;
     margin: auto;
+
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
     .App > .row {
@@ -13,5 +33,10 @@
     }
 
         .App > .row h1 {
-            margin-top: 50px;
+            margin: 75px 0 25px 0;
+            font-size: 40px;
+            color: #FFF;
+            text-transform: uppercase;
+            word-spacing: 15px;
+            letter-spacing: 5px;
         }
