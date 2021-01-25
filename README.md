@@ -1,6 +1,6 @@
 # Currency Converter
 
-Currency Converter page with REST API call created for studying purpose.
+Currency Converter page with REST API call created for studying purposes.
 
 ## Demo
 
